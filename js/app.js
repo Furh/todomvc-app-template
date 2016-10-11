@@ -21,6 +21,19 @@
         { id: 5, text: '约会', completed: true },
         { id: 6, text: 'hello world', completed: true }
       ]
+      $scope.save =function(){
+        var maxId = $scope.todos[0].id
+        $scope.todos.forEach(function(value,index,array){
+          if(maxId<value.id){
+            maxId = value.id
+          }
+        })
+        $scope.todos.push({id:maxId+1,text:$scope.text,completed:false})
+        console.log($scope.todos);
+      }
+      $scope.remove =function(){
+
+      }
     })
 
 })(window);
